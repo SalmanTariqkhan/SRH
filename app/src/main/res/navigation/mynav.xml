@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mynav"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/chooseUserFragment"
+        android:name="com.example.smartreceptionist.ChooseUserFragment"
+        android:label="choose_user"
+        tools:layout="@layout/choose_user" >
+        <action
+            android:id="@+id/action_chooseUserFragment_to_signupPatientFragment"
+            app:destination="@id/signupPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupPatientFragment"
+        android:name="com.example.smartreceptionist.SignupPatientFragment"
+        android:label="signup_patient"
+        tools:layout="@layout/signup_patient" >
+        <action
+            android:id="@+id/action_signupPatientFragment_to_emailPhoneVerificationFragment"
+            app:destination="@id/emailPhoneVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.smartreceptionist.TitleFragment"
+        android:label="title"
+        tools:layout="@layout/title" >
+        <action
+            android:id="@+id/action_titleFragment_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailPhoneVerificationFragment"
+        android:name="com.example.smartreceptionist.EmailPhoneVerificationFragment"
+        android:label="email_phoneno_verification"
+        tools:layout="@layout/email_phoneno_verification" >
+        <action
+            android:id="@+id/action_emailPhoneVerificationFragment_to_firstTimePatientFragment"
+            app:destination="@id/firstTimePatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstTimePatientFragment"
+        android:name="com.example.smartreceptionist.FirstTimePatientFragment"
+        android:label="firsttime_patient"
+        tools:layout="@layout/firsttime_patient" >
+        <action
+            android:id="@+id/action_firstTimePatientFragment_to_interfaceSelectionFragment"
+            app:destination="@id/interfaceSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/interfaceSelectionFragment"
+        android:name="com.example.smartreceptionist.InterfaceSelectionFragment"
+        android:label="interface_selection"
+        tools:layout="@layout/interface_selection" >
+        <action
+            android:id="@+id/action_interfaceSelectionFragment_to_textAppointmentFragment"
+            app:destination="@id/textAppointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/textAppointmentFragment"
+        android:name="com.example.smartreceptionist.TextAppointmentFragment"
+        android:label="text_appointment"
+        tools:layout="@layout/text_appointment" >
+        <action
+            android:id="@+id/action_textAppointmentFragment_to_textAppointmentTimeslotsFragment"
+            app:destination="@id/textAppointmentTimeslotsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/textAppointmentTimeslotsFragment"
+        android:name="com.example.smartreceptionist.TextAppointmentTimeslotsFragment"
+        android:label="text_appointment_timeslots"
+        tools:layout="@layout/text_appointment_timeslots" />
+</navigation>

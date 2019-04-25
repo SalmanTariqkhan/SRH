@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:background="#0066FF">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            android:text="Appointment"/>
+    </android.support.v7.widget.Toolbar>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView
+           android:layout_margin="64dp"
+           android:textAppearance="@android:style/TextAppearance.Material.Headline"
+           android:text="Welcome To Smart Receptionist"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:textStyle="bold"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+       <TextView
+           android:id="@+id/tv_firsttimemessage"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="64dp"
+           android:layout_marginRight="64dp"
+           android:gravity="center"
+           android:text="Ready to make your first appointment?"
+           android:textAppearance="@android:style/TextAppearance.Material.Headline"
+           android:textColor="#0066FF" />
+   </RelativeLayout>
+</LinearLayout>

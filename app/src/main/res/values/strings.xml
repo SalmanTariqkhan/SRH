@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Smart Receptionist</string>
+    <string name="cutitle">Choose User</string>
+    <string name="signup">Sign up</string>
+</resources>
