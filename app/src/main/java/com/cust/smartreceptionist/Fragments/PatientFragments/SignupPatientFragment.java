@@ -19,15 +19,14 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
+import com.cust.smartreceptionist.Models.DefaultResponse;
 import com.cust.smartreceptionist.R;
 import com.cust.smartreceptionist.api.RetrofitClient;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,14 +81,14 @@ public class SignupPatientFragment extends Fragment {
         et_email = view.findViewById(R.id.et_email);
         et_pass = view.findViewById(R.id.et_pass);
         et_cpass = view.findViewById(R.id.et_cpass);
-        radioSexGroup = (RadioGroup) view.findViewById(R.id.radioSex);
+        radioSexGroup = view.findViewById(R.id.radioSex);
         int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
         // find the radiobutton by returned id
-        radioSexButton = (RadioButton) view.findViewById(selectedId);
+        radioSexButton = view.findViewById(selectedId);
 
 
-        Button bt_register = (Button) view.findViewById(R.id.bt_register);
+        Button bt_register = view.findViewById(R.id.bt_register);
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,29 +158,26 @@ public class SignupPatientFragment extends Fragment {
             et_cpass.requestFocus();
             return;
         }
-        Call<ResponseBody> call = RetrofitClient
+        Call<DefaultResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .registerPatient(fname, lname, email, pass, cpass, pno, dob, gender);
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_LONG).show();
                     return;
                 }
-                try {
 
-                    String result = response.body().string();
-                    Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
-                }catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
+
+                DefaultResponse defaultResponse = response.body();
+                Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
             }
 
+
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
 
             }

@@ -10,17 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
+import com.cust.smartreceptionist.Models.DoctorSigninResponse;
 import com.cust.smartreceptionist.R;
 import com.cust.smartreceptionist.api.RetrofitClient;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,28 +67,26 @@ public class SigninDoctorFragment extends Fragment {
             et_doctor_signin_pass.requestFocus();
             return;
         }
-        Call<ResponseBody> call = RetrofitClient
+        Call<DoctorSigninResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .loginDoctor(email, pass);
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<DoctorSigninResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<DoctorSigninResponse> call, Response<DoctorSigninResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_LONG).show();
                     return;
                 }
-                try {
 
-                    String result = response.body().string();
-                    Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+                DoctorSigninResponse doctorSigninResponse = response.body();
+                Toast.makeText(getActivity(), doctorSigninResponse.getMessage(), Toast.LENGTH_LONG).show();
+
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<DoctorSigninResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
 
             }

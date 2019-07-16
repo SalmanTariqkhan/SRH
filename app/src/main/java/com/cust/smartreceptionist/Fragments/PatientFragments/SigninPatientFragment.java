@@ -15,12 +15,10 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
+import com.cust.smartreceptionist.Models.PatientSigninResponse;
 import com.cust.smartreceptionist.R;
 import com.cust.smartreceptionist.api.RetrofitClient;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +34,7 @@ public class SigninPatientFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        TextView signinmessage = (TextView)getView().findViewById(R.id.signinmessage);
+        TextView signinmessage = getView().findViewById(R.id.signinmessage);
         signinmessage.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_signinPatientFragment_to_signupPatientFragment, null));
         et_patient_signin_email = view.findViewById(R.id.et_patient_signin_email);
         et_patient_signin_pass = view.findViewById(R.id.et_patient_signin_pass);
@@ -71,28 +69,25 @@ public class SigninPatientFragment extends Fragment {
             et_patient_signin_pass.requestFocus();
             return;
         }
-        Call<ResponseBody> call = RetrofitClient
+        Call<PatientSigninResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .loginPatient( email, pass);
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<PatientSigninResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<PatientSigninResponse> call, Response<PatientSigninResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_LONG).show();
                     return;
                 }
-                try {
 
-                    String result = response.body().string();
-                    Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                PatientSigninResponse patientSigninResponse = response.body();
+                Toast.makeText(getActivity(), patientSigninResponse.getMessage(), Toast.LENGTH_LONG).show();
+
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<PatientSigninResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
 
             }

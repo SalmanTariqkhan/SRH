@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,8 @@ import android.widget.Toast;
 import androidx.navigation.Navigation;
 
 import com.cust.smartreceptionist.Models.Department;
-import com.cust.smartreceptionist.Models.DepartmentDoctors;
-import com.cust.smartreceptionist.Models.Departments;
+import com.cust.smartreceptionist.Models.DepartmentDoctorsResponse;
+import com.cust.smartreceptionist.Models.DepartmentsResponse;
 import com.cust.smartreceptionist.Models.Doctor;
 import com.cust.smartreceptionist.R;
 import com.cust.smartreceptionist.api.APIService;
@@ -47,17 +46,17 @@ public class TextAppointmentFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        spin_department = (Spinner) view.findViewById(R.id.spin_department);
-        spin_doctor = (Spinner) view.findViewById(R.id.spin_doctor);
-        Call<Departments> call = RetrofitClient.getInstance().getApi().getDepartments();
-        call.enqueue(new Callback<Departments>() {
+        spin_department = view.findViewById(R.id.spin_department);
+        spin_doctor = view.findViewById(R.id.spin_doctor);
+        Call<DepartmentsResponse> call = RetrofitClient.getInstance().getApi().getDepartments();
+        call.enqueue(new Callback<DepartmentsResponse>() {
             @Override
-            public void onResponse(Call<Departments> call, Response<Departments> response) {
+            public void onResponse(Call<DepartmentsResponse> call, Response<DepartmentsResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Departments data = response.body();
+                DepartmentsResponse data = response.body();
                 departments = data.getDepartments();
                 List<String> departmentnames = new ArrayList<>();
                 for (Department department : departments) {
@@ -79,16 +78,16 @@ public class TextAppointmentFragment extends Fragment {
                                 departmentid = department.getId();
                             }
                         }
-                        Call<DepartmentDoctors> call = RetrofitClient.getInstance().getApi().getDoctors(departmentid);
-                        call.enqueue(new Callback<DepartmentDoctors>() {
+                        Call<DepartmentDoctorsResponse> call = RetrofitClient.getInstance().getApi().getDoctors(departmentid);
+                        call.enqueue(new Callback<DepartmentDoctorsResponse>() {
                             @Override
-                            public void onResponse(Call<DepartmentDoctors> call, Response<DepartmentDoctors> response) {
+                            public void onResponse(Call<DepartmentDoctorsResponse> call, Response<DepartmentDoctorsResponse> response) {
                                 if (!response.isSuccessful()) {
                                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                DepartmentDoctors departmentDoctors = response.body();
-                                List<Doctor> doctors = departmentDoctors.getData();
+                                DepartmentDoctorsResponse departmentDoctorsResponse = response.body();
+                                List<Doctor> doctors = departmentDoctorsResponse.getDoctors();
                                 List<String> doctorsname = new ArrayList<>();
                                 for (Doctor doctor : doctors) {
                                     doctorsname.add("Dr. " + doctor.getFirstname() + doctor.getLastname());
@@ -100,7 +99,7 @@ public class TextAppointmentFragment extends Fragment {
                             }
 
                             @Override
-                            public void onFailure(Call<DepartmentDoctors> call, Throwable t) {
+                            public void onFailure(Call<DepartmentDoctorsResponse> call, Throwable t) {
                                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
@@ -114,11 +113,11 @@ public class TextAppointmentFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Departments> call, Throwable t) {
+            public void onFailure(Call<DepartmentsResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        Button bt_appointmentschedule = (Button) view.findViewById(R.id.bt_appointmentschedule);
+        Button bt_appointmentschedule = view.findViewById(R.id.bt_appointmentschedule);
         bt_appointmentschedule.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_textAppointmentFragment_to_textAppointmentTimeslotsFragment, null));
     }
 }

@@ -1,10 +1,11 @@
 package com.cust.smartreceptionist.api;
 
-import com.cust.smartreceptionist.Models.DepartmentDoctors;
-import com.cust.smartreceptionist.Models.Departments;
+import com.cust.smartreceptionist.Models.DefaultResponse;
+import com.cust.smartreceptionist.Models.DepartmentDoctorsResponse;
+import com.cust.smartreceptionist.Models.DepartmentsResponse;
+import com.cust.smartreceptionist.Models.DoctorSigninResponse;
+import com.cust.smartreceptionist.Models.PatientSigninResponse;
 
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,14 +15,14 @@ import retrofit2.http.Path;
 
 public interface APIService {
     @GET("departments")
-    Call<Departments> getDepartments();
+    Call<DepartmentsResponse> getDepartments();
 
     @GET("departments/doctors/{id}")
-    Call<DepartmentDoctors> getDoctors(@Path("id") int department_id);
+    Call<DepartmentDoctorsResponse> getDoctors(@Path("id") int department_id);
 
     @FormUrlEncoded
     @POST("patientregister")
-    Call<ResponseBody> registerPatient(
+    Call<DefaultResponse> registerPatient(
             @Field("firstname") String firstname,
             @Field("lastname")  String lastname,
             @Field("email") String email,
@@ -33,7 +34,7 @@ public interface APIService {
 
     @FormUrlEncoded
     @POST("doctorregister")
-    Call<ResponseBody> registerDoctor(
+    Call<DefaultResponse> registerDoctor(
             @Field("firstname") String firstname,
             @Field("lastname")  String lastname,
             @Field("department_id") int department_id,
@@ -46,13 +47,13 @@ public interface APIService {
 
     @FormUrlEncoded
     @POST("patientlogin")
-    Call<ResponseBody> loginPatient(
+    Call<PatientSigninResponse> loginPatient(
             @Field("email") String email,
             @Field("password") String password);
 
     @FormUrlEncoded
     @POST("doctorlogin")
-    Call<ResponseBody> loginDoctor(
+    Call<DoctorSigninResponse> loginDoctor(
             @Field("email") String email,
             @Field("password") String password);
 }

@@ -23,19 +23,18 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
+import com.cust.smartreceptionist.Models.DefaultResponse;
 import com.cust.smartreceptionist.Models.Department;
-import com.cust.smartreceptionist.Models.Departments;
+import com.cust.smartreceptionist.Models.DepartmentsResponse;
 import com.cust.smartreceptionist.R;
 import com.cust.smartreceptionist.api.RetrofitClient;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,17 +61,17 @@ public class SignupDoctorFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        spin_department = (Spinner) view.findViewById(R.id.spin_doctor_department_signup);
+        spin_department = view.findViewById(R.id.spin_doctor_department_signup);
 //        Call for Departments and implementation of doctor department spinner
-        Call<Departments> call = RetrofitClient.getInstance().getApi().getDepartments();
-        call.enqueue(new Callback<Departments>() {
+        Call<DepartmentsResponse> call = RetrofitClient.getInstance().getApi().getDepartments();
+        call.enqueue(new Callback<DepartmentsResponse>() {
             @Override
-            public void onResponse(Call<Departments> call, Response<Departments> response) {
+            public void onResponse(Call<DepartmentsResponse> call, Response<DepartmentsResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Departments data = response.body();
+                DepartmentsResponse data = response.body();
                 departments = data.getDepartments();
                 ArrayList<String> departmentnames = new ArrayList<>();
                 for (Department department : departments) {
@@ -101,7 +100,7 @@ public class SignupDoctorFragment extends Fragment {
 
 
             @Override
-            public void onFailure(Call<Departments> call, Throwable t) {
+            public void onFailure(Call<DepartmentsResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -113,7 +112,6 @@ public class SignupDoctorFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -126,7 +124,6 @@ public class SignupDoctorFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 new DatePickerDialog(getActivity(), date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
@@ -140,14 +137,14 @@ public class SignupDoctorFragment extends Fragment {
         et_doctor_pass = view.findViewById(R.id.et_doctor_pass);
         et_doctor_cpass = view.findViewById(R.id.et_doctor_cpass);
         doctorsignuploading = view.findViewById(R.id.doctorsignuploading);
-        radioSexGroup = (RadioGroup) view.findViewById(R.id.doctor_radioSex);
+        radioSexGroup = view.findViewById(R.id.doctor_radioSex);
         int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
         // find the radiobutton by returned id
-        radioSexButton = (RadioButton) view.findViewById(selectedId);
+        radioSexButton = view.findViewById(selectedId);
 
 
-        bt_register = (Button) view.findViewById(R.id.bt_doctor_register);
+        bt_register = view.findViewById(R.id.bt_doctor_register);
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,28 +217,25 @@ public class SignupDoctorFragment extends Fragment {
             et_doctor_cpass.requestFocus();
             return;
         }
-        Call<ResponseBody> call = RetrofitClient
+        Call<DefaultResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .registerDoctor(fname, lname,departmentid, email, pass, cpass, pno, dob, gender);
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                try {
 
-                    String result = response.body().string();
-                    Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+                DefaultResponse defaultResponse = response.body();
+                Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
