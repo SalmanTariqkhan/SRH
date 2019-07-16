@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#f47100">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_itemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Monday, 15-july-2019"
+            android:textColor="#fff2df"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/tv_itemDate"
+            android:id="@+id/rv_consultancyslots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+
+</android.support.design.card.MaterialCardView>

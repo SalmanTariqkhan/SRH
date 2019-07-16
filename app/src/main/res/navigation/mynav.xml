@@ -7,34 +7,43 @@
 
     <fragment
         android:id="@+id/chooseUserFragment"
-        android:name="com.example.smartreceptionist.ChooseUserFragment"
+        android:name="com.cust.smartreceptionist.Fragments.ChooseUserFragment"
         android:label="choose_user"
         tools:layout="@layout/choose_user" >
         <action
             android:id="@+id/action_chooseUserFragment_to_signupPatientFragment"
             app:destination="@id/signupPatientFragment" />
+        <action
+            android:id="@+id/action_chooseUserFragment_to_signupDoctorFragment"
+            app:destination="@id/signupDoctorFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupPatientFragment"
-        android:name="com.example.smartreceptionist.SignupPatientFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.SignupPatientFragment"
         android:label="signup_patient"
         tools:layout="@layout/signup_patient" >
         <action
             android:id="@+id/action_signupPatientFragment_to_emailPhoneVerificationFragment"
             app:destination="@id/emailPhoneVerificationFragment" />
+        <action
+            android:id="@+id/action_signupPatientFragment_to_signinPatientFragment"
+            app:destination="@id/signinPatientFragment" />
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
-        android:name="com.example.smartreceptionist.TitleFragment"
+        android:name="com.cust.smartreceptionist.Fragments.TitleFragment"
         android:label="title"
         tools:layout="@layout/title" >
         <action
             android:id="@+id/action_titleFragment_to_chooseUserFragment"
             app:destination="@id/chooseUserFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_signinPatientFragment"
+            app:destination="@id/signinPatientFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailPhoneVerificationFragment"
-        android:name="com.example.smartreceptionist.EmailPhoneVerificationFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.EmailPhoneVerificationFragment"
         android:label="email_phoneno_verification"
         tools:layout="@layout/email_phoneno_verification" >
         <action
@@ -43,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstTimePatientFragment"
-        android:name="com.example.smartreceptionist.FirstTimePatientFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.FirstTimePatientFragment"
         android:label="firsttime_patient"
         tools:layout="@layout/firsttime_patient" >
         <action
@@ -52,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/interfaceSelectionFragment"
-        android:name="com.example.smartreceptionist.InterfaceSelectionFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.InterfaceSelectionFragment"
         android:label="interface_selection"
         tools:layout="@layout/interface_selection" >
         <action
@@ -61,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/textAppointmentFragment"
-        android:name="com.example.smartreceptionist.TextAppointmentFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.TextAppointmentFragment"
         android:label="text_appointment"
         tools:layout="@layout/text_appointment" >
         <action
@@ -70,7 +79,109 @@
     </fragment>
     <fragment
         android:id="@+id/textAppointmentTimeslotsFragment"
-        android:name="com.example.smartreceptionist.TextAppointmentTimeslotsFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.TextAppointmentTimeslotsFragment"
         android:label="text_appointment_timeslots"
-        tools:layout="@layout/text_appointment_timeslots" />
+        tools:layout="@layout/text_appointment_timeslots" >
+        <action
+            android:id="@+id/action_textAppointmentTimeslotsFragment_to_confirmAppointmentFragment"
+            app:destination="@id/confirmAppointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmAppointmentFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.ConfirmAppointmentFragment"
+        android:label="confirm_appointment"
+        tools:layout="@layout/confirm_appointment" >
+        <action
+            android:id="@+id/action_confirmAppointmentFragment_to_patientMenuFragment"
+            app:destination="@id/patientMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientMenuFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.PatientMenuFragment"
+        android:label="patient_menu"
+        tools:layout="@layout/patient_menu" >
+        <action
+            android:id="@+id/action_patientMenuFragment_to_patientAppointmentHistoryFragment"
+            app:destination="@id/patientAppointmentHistoryFragment" />
+        <action
+            android:id="@+id/action_patientMenuFragment_to_interfaceSelectionFragment"
+            app:destination="@id/interfaceSelectionFragment" />
+        <action
+            android:id="@+id/action_patientMenuFragment_to_patientProfileFragment"
+            app:destination="@id/patientProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientAppointmentHistoryFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.PatientAppointmentHistoryFragment"
+        android:label="patient_appointment_history"
+        tools:layout="@layout/patient_appointment_history" />
+    <fragment
+        android:id="@+id/signinPatientFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.SigninPatientFragment"
+        android:label="signin_patient"
+        tools:layout="@layout/signin_patient" >
+        <action
+            android:id="@+id/action_signinPatientFragment_to_patientMenuFragment"
+            app:destination="@id/patientMenuFragment" />
+        <action
+            android:id="@+id/action_signinPatientFragment_to_signupPatientFragment"
+            app:destination="@id/signupPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinDoctorFragment"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.SigninDoctorFragment"
+        android:label="signin_doctor"
+        tools:layout="@layout/signin_doctor" >
+        <action
+            android:id="@+id/action_signinDoctorFragment_to_firstTimeDoctorFragment"
+            app:destination="@id/firstTimeDoctorFragment" />
+        <action
+            android:id="@+id/action_signinDoctorFragment_to_doctorMenuFragment"
+            app:destination="@id/doctorMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstTimeDoctorFragment"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.FirstTimeDoctorFragment"
+        android:label="firsttime_doctor"
+        tools:layout="@layout/firsttime_doctor" >
+        <action
+            android:id="@+id/action_firstTimeDoctorFragment_to_doctorMenuFragment"
+            app:destination="@id/doctorMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorMenuFragment"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.DoctorMenuFragment"
+        android:label="doctor_menu"
+        tools:layout="@layout/doctor_menu" >
+        <action
+            android:id="@+id/action_doctorMenuFragment_to_doctorProfileFragment"
+            app:destination="@id/doctorProfileFragment" />
+        <action
+            android:id="@+id/action_doctorMenuFragment_to_doctorManageTimetableFragment2"
+            app:destination="@id/doctorManageTimetableFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupDoctorFragment"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.SignupDoctorFragment"
+        android:label="signup_doctor"
+        tools:layout="@layout/signup_doctor" >
+        <action
+            android:id="@+id/action_signupDoctorFragment_to_signinDoctorFragment"
+            app:destination="@id/signinDoctorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorProfileFragment"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.DoctorProfileFragment"
+        android:label="doctor_profile"
+        tools:layout="@layout/doctor_profile" />
+    <fragment
+        android:id="@+id/patientProfileFragment"
+        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.PatientProfileFragment"
+        android:label="patient_profile"
+        tools:layout="@layout/patient_profile" />
+    <fragment
+        android:id="@+id/doctorManageTimetableFragment2"
+        android:name="com.cust.smartreceptionist.Fragments.DoctorFragments.DoctorManageTimetableFragment"
+        android:label="doctor_managetimetable"
+        tools:layout="@layout/doctor_managetimetable" />
 </navigation>

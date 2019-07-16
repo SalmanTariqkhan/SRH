@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <TextView
+            android:id="@+id/tv_itemtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Appointment Title"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <TextView
+            android:id="@+id/tv1_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_itemtitle"
+            android:layout_margin="8dp"
+            android:text="Patient Name:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv1_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_itemtitle"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/tv1_name"
+            android:text="usman" />
+
+        <TextView
+            android:id="@+id/tv2_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1_name"
+            android:layout_margin="8dp"
+            android:text="Doctor Name:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv2_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1_name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/tv2_name"
+            android:text="Dr Ali" />
+
+        <TextView
+            android:id="@+id/tv3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv2_name"
+            android:layout_margin="8dp"
+            android:text="Date and Time:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv3_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv2_name"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/tv3_name"
+            android:text="24 March 2019 11:15 AM" />
+    </RelativeLayout>
+
+</android.support.design.card.MaterialCardView>

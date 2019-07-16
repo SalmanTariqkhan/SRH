@@ -5,24 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:background="#0066FF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Verification"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
-            android:textColor="@android:color/white" />
-
-    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:id="@+id/textView"
@@ -35,9 +17,11 @@
         android:text="We have sent two different verification codes one on your email: xyz@gmail.com and other on your phone# --------- ! kindly enter the verification  codes  in there relevent fields.  "
         android:textColor="@android:color/black"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <TextView

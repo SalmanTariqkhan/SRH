@@ -1,147 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:background="#0066FF">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/outline_arrow_back_white_36dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
-            android:text="@string/signup"/>
-    </android.support.v7.widget.Toolbar>
 
     <EditText
         android:id="@+id/et_fname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
         android:ems="10"
         android:hint="First Name"
-        android:layout_weight="1"
-        android:layout_gravity="center"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/ed_lname"
+        android:id="@+id/et_lname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_weight="1"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/ed_dob"
-        android:layout_weight="1"
+        android:id="@+id/et_dob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="false"
+        android:ems="10"
         android:hint="Date of Birth"
         android:inputType="date" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="8dp"
+            android:text="Gender"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radioSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_gender"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_gender"
+                android:checked="true"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/radioMale"
+                android:text="Female " />
+
+        </RadioGroup>
+    </RelativeLayout>
+
     <EditText
         android:id="@+id/et_pno"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:ems="10"
         android:hint="Phone#"
         android:inputType="phone" />
 
-    <EditText
-        android:id="@+id/et_cnic"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:hint="CNIC"
-        android:inputType="number" />
 
     <EditText
         android:id="@+id/et_email"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/et_pass"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/et_cpass"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword" />
+    <ProgressBar
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/patientsignuploading"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/bt_register"
-        android:textColor="@android:color/black"
-        android:background="#ff9900"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="#ff9900"
+        android:fontFamily="sans-serif"
         android:text="Register"
-        android:fontFamily="sans-serif"/>
+        android:textColor="@android:color/black" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:layout_weight="1">
+
         <TextView
             android:id="@+id/regmessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="Already have an account?"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="Sign in"
-            android:layout_toRightOf="@id/regmessage"
-            android:textStyle="bold" />
+            android:layout_centerHorizontal="true"
+            android:text="Already have an account?Sign in "
+            android:textColor="@android:color/black" />
 
     </RelativeLayout>
-
 
 
 </android.support.v7.widget.LinearLayoutCompat>

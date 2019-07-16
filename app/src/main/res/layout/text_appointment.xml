@@ -4,29 +4,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:background="#0066FF">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/outline_arrow_back_white_36dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
-            android:text="Appointment"/>
-    </android.support.v7.widget.Toolbar>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        android:textAppearance="@android:style/TextAppearance.Large"
         android:text="Department Name:"/>
     <Spinner
         android:layout_margin="16dp"
@@ -39,11 +23,11 @@
         android:textColor="@android:color/black"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        android:textAppearance="@android:style/TextAppearance.Large"
         android:text="Doctor Name:"/>
     <Spinner
         android:layout_margin="16dp"
-        android:id="@+id/spin_department"
+        android:id="@+id/spin_doctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

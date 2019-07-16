@@ -1,0 +1,39 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <TextView
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Add new Consultancy slot"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+    <ImageButton
+        android:layout_marginBottom="32dp"
+        android:id="@+id/bt_addconsultancyslot"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_red_dark"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_add_black_24dp"/>
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Schedule"
+        android:textAllCaps="true"
+        android:textAppearance="@android:style/TextAppearance.Large"/>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/rv_timetableslots"
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical"
+    />
+</LinearLayout>

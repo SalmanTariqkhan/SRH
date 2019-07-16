@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="#ec0505">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/doctor_profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/doctor"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_doctor_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Name: "
+                android:textColor="@android:color/black"
+                 />
+
+            <EditText
+                android:id="@+id/et_doctor_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/tv_doctor_profile_name"
+                android:gravity="center_horizontal"
+                android:inputType="none"
+                android:text="Salman Tariq Khan"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">>
+
+            <TextView
+                android:id="@+id/tv_doctor_profile_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Department: "
+                android:textColor="@android:color/black"
+                 />
+
+            <EditText
+                android:id="@+id/et_doctor_profile_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/tv_doctor_profile_department"
+                android:gravity="center_horizontal"
+                android:inputType="none"
+                android:text="Cardiology"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_doctor_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email: "
+                android:textColor="@android:color/black"
+                />
+
+            <EditText
+                android:id="@+id/et_doctor_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/tv_doctor_profile_email"
+                android:gravity="center_horizontal"
+                android:inputType="none"
+                android:text="Salman@gmail.com"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_doctor_profile_pno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Phone#: "
+                android:textColor="@android:color/black"
+                 />
+
+            <EditText
+                android:id="@+id/et_doctor_profile_pno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/tv_doctor_profile_pno"
+                android:gravity="center_horizontal"
+                android:inputType="none"
+                android:text="030000000"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/tv_doctor_profile_dob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Date of Birth: "
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/et_doctor_profile_dob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/tv_doctor_profile_dob"
+                android:gravity="center_horizontal"
+                android:inputType="none"
+                android:text="1996/10/30"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/bt_doctor_profile_edit"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_edit_black_24dp"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/bt_doctor_profile_edit_done"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_done_black_24dp"
+                android:visibility="gone"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
