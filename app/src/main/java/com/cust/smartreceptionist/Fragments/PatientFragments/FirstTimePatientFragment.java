@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.navigation.Navigation;
+
 import com.cust.smartreceptionist.R;
 
 
@@ -23,8 +24,8 @@ public class FirstTimePatientFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        TextView tv_firsttimessage = (TextView)getView().findViewById(R.id.tv_firsttimemessage);
-        tv_firsttimessage.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_firstTimePatientFragment_to_interfaceSelectionFragment, null));
+        TextView tv_firsttimessage = getView().findViewById(R.id.tv_firsttimemessage);
+        tv_firsttimessage.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_firstTimePatientFragment_to_textAppointmentFragment, null));
 
     }
 }

@@ -15,10 +15,14 @@ import android.widget.Toast;
 
 import androidx.navigation.Navigation;
 
-import com.cust.smartreceptionist.Models.PatientSigninResponse;
+import com.cust.smartreceptionist.Models.Patient;
 import com.cust.smartreceptionist.R;
+import com.cust.smartreceptionist.Storage.SharedPrefManager;
 import com.cust.smartreceptionist.api.RetrofitClient;
 
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,7 +47,7 @@ public class SigninPatientFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 patientSignin();
-                Navigation.findNavController(v).navigate(R.id.action_signinPatientFragment_to_patientMenuFragment);
+//                Navigation.findNavController(v).navigate(R.id.action_signinPatientFragment_to_patientMenuFragment);
 
             }
         });
@@ -69,25 +73,51 @@ public class SigninPatientFragment extends Fragment {
             et_patient_signin_pass.requestFocus();
             return;
         }
-        Call<PatientSigninResponse> call = RetrofitClient
+        Call<ResponseBody> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .loginPatient( email, pass);
-        call.enqueue(new Callback<PatientSigninResponse>() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<PatientSigninResponse> call, Response<PatientSigninResponse> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), response.code(), Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                PatientSigninResponse patientSigninResponse = response.body();
-                Toast.makeText(getActivity(), patientSigninResponse.getMessage(), Toast.LENGTH_LONG).show();
+                try {
 
+                    JSONObject jsonresponse = new JSONObject(response.body().string());
+
+                    if (jsonresponse.getBoolean("error") == true) {
+                        Toast.makeText(getActivity(), jsonresponse.getString("message"), Toast.LENGTH_LONG).show();
+                    } else if (jsonresponse.getBoolean("error") == false) {
+
+                        JSONObject patientJson = jsonresponse.getJSONObject("patient");
+                        Patient patient = new Patient(patientJson.getInt("id"),
+                                patientJson.getString("firstname"),
+                                patientJson.getString("lastname"),
+                                patientJson.getString("email"),
+                                patientJson.getString("email_verified_at"),
+                                patientJson.getString("phonenumber"),
+                                patientJson.getString("phonenumber_verified_at"),
+                                patientJson.getString("DOB"),
+                                patientJson.getString("gender"),
+                                patientJson.getString("image"),
+                                patientJson.getString("created_at"),
+                                patientJson.getString("updated_at")
+                        );
+                        SharedPrefManager.getInstance(getActivity()).savePatient(patient);
+                        Toast.makeText(getActivity(), jsonresponse.getString("message"), Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_signinPatientFragment_to_firstTimePatientFragment);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
-            public void onFailure(Call<PatientSigninResponse> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
 
             }

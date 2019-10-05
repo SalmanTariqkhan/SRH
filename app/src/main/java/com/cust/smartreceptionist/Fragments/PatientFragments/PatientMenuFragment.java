@@ -23,11 +23,11 @@ public class PatientMenuFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button bt_appointment_make = (Button) getView().findViewById(R.id.bt_appointment_make);
-        bt_appointment_make.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_patientMenuFragment_to_interfaceSelectionFragment, null));
-        Button bt_appointment_history = (Button) getView().findViewById(R.id.bt_appointment_history);
+        Button bt_appointment_make = getView().findViewById(R.id.bt_appointment_make);
+        bt_appointment_make.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_patientMenuFragment_to_textAppointmentFragment, null));
+        Button bt_appointment_history = getView().findViewById(R.id.bt_appointment_history);
         bt_appointment_history.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_patientMenuFragment_to_patientAppointmentHistoryFragment, null));
-        Button bt_patient_edit_profile = (Button) getView().findViewById(R.id.bt_patientmenu_edit_profile);
+        Button bt_patient_edit_profile = getView().findViewById(R.id.bt_patientmenu_edit_profile);
         bt_patient_edit_profile.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_patientMenuFragment_to_patientProfileFragment, null));
 
     }

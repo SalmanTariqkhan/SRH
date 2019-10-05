@@ -105,27 +105,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="emailPhoneVerificationFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="744" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_emailPhoneVerificationFragment_to_firstTimePatientFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="firstTimeDoctorFragment">
                     <value>
                       <LayoutPositions>
@@ -158,28 +137,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_firstTimePatientFragment_to_interfaceSelectionFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="interfaceSelectionFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="1232" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_interfaceSelectionFragment_to_textAppointmentFragment">
+                            <entry key="action_firstTimePatientFragment_to_textAppointmentFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -212,17 +170,17 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_patientMenuFragment_to_interfaceSelectionFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_patientMenuFragment_to_patientAppointmentHistoryFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                             <entry key="action_patientMenuFragment_to_patientProfileFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_patientMenuFragment_to_textAppointmentFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -281,6 +239,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_signinPatientFragment_to_firstTimePatientFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_signinPatientFragment_to_patientMenuFragment">
                               <value>
                                 <LayoutPositions />
@@ -328,11 +291,6 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_signupPatientFragment_to_emailPhoneVerificationFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_signupPatientFragment_to_signinPatientFragment">
                               <value>
                                 <LayoutPositions />

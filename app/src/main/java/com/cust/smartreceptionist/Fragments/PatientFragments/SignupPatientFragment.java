@@ -93,7 +93,7 @@ public class SignupPatientFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 userSignup();
-                Navigation.findNavController(v).navigate(R.id.action_signupPatientFragment_to_emailPhoneVerificationFragment);
+//                Navigation.findNavController(v).navigate(R.id.action_signupPatientFragment_to_signinPatientFragment);
 
             }
         });
@@ -172,7 +172,13 @@ public class SignupPatientFragment extends Fragment {
 
 
                 DefaultResponse defaultResponse = response.body();
-                Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
+                if (defaultResponse.isError()) {
+                    Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_signupPatientFragment_to_signinPatientFragment);
+
+                }
             }
 
 

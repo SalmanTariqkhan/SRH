@@ -15,6 +15,14 @@
         >
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_itemDate"
+            android:text="Date:  "
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="#fff2df"
+            android:textStyle="bold" />
+        <TextView
             android:id="@+id/tv_itemDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,11 +31,32 @@
             android:textColor="#fff2df"
             android:textAppearance="@android:style/TextAppearance.Large" />
 
+        <TextView
+            android:id="@+id/tv_title_consult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_itemDate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Consultancy Slots:"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="#fff2df"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/bt_delete_consultancyslot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="31dp"
+            android:layout_toRightOf="@id/tv_title_consult"
+            android:background="#f47100"
+            android:src="@drawable/ic_delete_black_24dp" />
+
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/tv_itemDate"
+            android:layout_below="@id/tv_title_consult"
             android:id="@+id/rv_consultancyslots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

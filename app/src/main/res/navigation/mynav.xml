@@ -23,9 +23,6 @@
         android:label="signup_patient"
         tools:layout="@layout/signup_patient" >
         <action
-            android:id="@+id/action_signupPatientFragment_to_emailPhoneVerificationFragment"
-            app:destination="@id/emailPhoneVerificationFragment" />
-        <action
             android:id="@+id/action_signupPatientFragment_to_signinPatientFragment"
             app:destination="@id/signinPatientFragment" />
     </fragment>
@@ -42,30 +39,12 @@
             app:destination="@id/signinPatientFragment" />
     </fragment>
     <fragment
-        android:id="@+id/emailPhoneVerificationFragment"
-        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.EmailPhoneVerificationFragment"
-        android:label="email_phoneno_verification"
-        tools:layout="@layout/email_phoneno_verification" >
-        <action
-            android:id="@+id/action_emailPhoneVerificationFragment_to_firstTimePatientFragment"
-            app:destination="@id/firstTimePatientFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/firstTimePatientFragment"
         android:name="com.cust.smartreceptionist.Fragments.PatientFragments.FirstTimePatientFragment"
         android:label="firsttime_patient"
         tools:layout="@layout/firsttime_patient" >
         <action
-            android:id="@+id/action_firstTimePatientFragment_to_interfaceSelectionFragment"
-            app:destination="@id/interfaceSelectionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/interfaceSelectionFragment"
-        android:name="com.cust.smartreceptionist.Fragments.PatientFragments.InterfaceSelectionFragment"
-        android:label="interface_selection"
-        tools:layout="@layout/interface_selection" >
-        <action
-            android:id="@+id/action_interfaceSelectionFragment_to_textAppointmentFragment"
+            android:id="@+id/action_firstTimePatientFragment_to_textAppointmentFragment"
             app:destination="@id/textAppointmentFragment" />
     </fragment>
     <fragment
@@ -104,11 +83,11 @@
             android:id="@+id/action_patientMenuFragment_to_patientAppointmentHistoryFragment"
             app:destination="@id/patientAppointmentHistoryFragment" />
         <action
-            android:id="@+id/action_patientMenuFragment_to_interfaceSelectionFragment"
-            app:destination="@id/interfaceSelectionFragment" />
-        <action
             android:id="@+id/action_patientMenuFragment_to_patientProfileFragment"
             app:destination="@id/patientProfileFragment" />
+        <action
+            android:id="@+id/action_patientMenuFragment_to_textAppointmentFragment"
+            app:destination="@id/textAppointmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/patientAppointmentHistoryFragment"
@@ -126,6 +105,9 @@
         <action
             android:id="@+id/action_signinPatientFragment_to_signupPatientFragment"
             app:destination="@id/signupPatientFragment" />
+        <action
+            android:id="@+id/action_signinPatientFragment_to_firstTimePatientFragment"
+            app:destination="@id/firstTimePatientFragment" />
     </fragment>
     <fragment
         android:id="@+id/signinDoctorFragment"

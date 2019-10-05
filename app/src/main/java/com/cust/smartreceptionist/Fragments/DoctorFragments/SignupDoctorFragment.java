@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -48,7 +47,6 @@ public class SignupDoctorFragment extends Fragment {
     DatePickerDialog.OnDateSetListener date;
     final Calendar myCalendar = Calendar.getInstance();
     List<Department> departments;
-    ProgressBar doctorsignuploading;
     Button bt_register;
 
     @Nullable
@@ -136,7 +134,6 @@ public class SignupDoctorFragment extends Fragment {
         et_doctor_email = view.findViewById(R.id.et_doctor_email);
         et_doctor_pass = view.findViewById(R.id.et_doctor_pass);
         et_doctor_cpass = view.findViewById(R.id.et_doctor_cpass);
-        doctorsignuploading = view.findViewById(R.id.doctorsignuploading);
         radioSexGroup = view.findViewById(R.id.doctor_radioSex);
         int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
@@ -149,7 +146,7 @@ public class SignupDoctorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 doctorSignup();
-                Navigation.findNavController(v).navigate(R.id.action_signupDoctorFragment_to_signinDoctorFragment);
+//                Navigation.findNavController(v).navigate(R.id.action_signupDoctorFragment_to_signinDoctorFragment);
 
             }
         });
@@ -165,8 +162,6 @@ public class SignupDoctorFragment extends Fragment {
 
     // Method for validation and register doctor
     private void doctorSignup() {
-        doctorsignuploading.setVisibility(View.VISIBLE);
-        bt_register.setVisibility(View.GONE);
        final String fname = et_doctor_fname.getText().toString().trim();
        final String lname = et_doctor_lname.getText().toString().trim();
        final String dob = et_doctor_dob.getText().toString().trim();
@@ -231,7 +226,14 @@ public class SignupDoctorFragment extends Fragment {
 
 
                 DefaultResponse defaultResponse = response.body();
-                Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                if (defaultResponse.isError()) {
+                    Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_signupDoctorFragment_to_signinDoctorFragment);
+                    Toast.makeText(getActivity(), defaultResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
             }
 
             @Override
